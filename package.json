@@ -1,108 +1,108 @@
 {
-    "name": "vscode-convert-windows-path",
-    "displayName": "Convert Path",
-    "version": "0.0.1",
-    "publisher": "constneo",
-    "description": "Convert Windows file path to the Unix Style",
-    "author": {
-        "name": "constneo",
-        "email": "constneo@microsoft.com"
-    },
-    "categories": [
-        "Formatters"
-    ],
-    "icon": "./images/icon.png",
-    "engines": {
-        "vscode": "^1.72.0"
-    },
-    "main": "./extension.js",
-    "activationEvents": [
-        "onLanguage:json",
-        "onLanguage:markdown",
-        "onLanguage:typescript",
-        "onLanguage:javascript"
-    ],
-    "contributes": {
-        "menus": {
-            "commandPalette": [
-                {
-                    "command": "wi.pick",
-                    "when": "editorHasSelection"
-                }
-            ],
-            "editor/context": [
-                {
-                    "when": "editorHasSelection",
-                    "command": "wi.convert",
-                    "group": "navigation"
-                }
-            ]
-        },
-        "commands": [
-            {
-                "command": "wi.convert",
-                "title": "convert",
-                "icon": {
-                    "light": "resources/menu.svg",
-                    "dark": "resources/menu.svg"
-                },
-                "category": "wi"
-            },
-            {
-                "command": "wi.pick",
-                "title": "pick string",
-                "category": "wi"
-            }
-        ],
-        "keybindings": [
-            {
-                "command": "input",
-                "key": "ctrl+alt+l",
-                "mac": "cmd+alt+l",
-                "when": "editorHasSelection"
-            }
-        ],
-        "configuration": {
-            "type": "object",
-            "title": "A Convert",
-            "properties": {
-                "notesync.opened": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "测试 boolean"
-                },
-                "notesync.path": {
-                    "type": "string",
-                    "default": "",
-                    "description": "测试 string"
-                }
-            }
+  "name": "vscode-convert-windows-path",
+  "displayName": "Convert Path",
+  "version": "0.0.1",
+  "publisher": "constneo",
+  "description": "Convert Windows file path to the Unix Style",
+  "author": {
+    "name": "constneo",
+    "email": "constneo@microsoft.com"
+  },
+  "categories": [
+    "Formatters"
+  ],
+  "icon": "./resources/icon.png",
+  "engines": {
+    "vscode": "^1.72.0"
+  },
+  "main": "./extension.js",
+  "activationEvents": [
+    "onLanguage:json",
+    "onLanguage:markdown",
+    "onLanguage:typescript",
+    "onLanguage:javascript"
+  ],
+  "contributes": {
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "wi.pick",
+          "when": "editorHasSelection"
         }
+      ],
+      "editor/context": [
+        {
+          "when": "editorHasSelection",
+          "command": "wi.convert",
+          "group": "navigation"
+        }
+      ]
     },
-    "scripts": {
-        "lint": "eslint .",
-        "pretest": "npm run lint",
-        "test": "node ./test/runTest.js"
-    },
-    "devDependencies": {
-        "@types/vscode": "^1.72.0",
-        "@types/glob": "^8.0.0",
-        "@types/mocha": "^10.0.0",
-        "@types/node": "16.x",
-        "eslint": "^8.24.0",
-        "glob": "^8.0.3",
-        "mocha": "^10.0.0",
-        "typescript": "^4.8.4",
-        "@vscode/test-electron": "^2.1.5"
-    },
-    "license": "SEE LICENSE IN LICENSE.md",
-    "bugs": {
-        "url": "https://github.com/constneo/sss/issues",
-        "email": "constneo@microsoft.com"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/constneo/sss.git"
-    },
-    "homepage": "https://github.com/sss/blob/master/README.md"
+    "commands": [
+      {
+        "command": "wi.convert",
+        "title": "convert",
+        "icon": {
+          "light": "resources/menu.svg",
+          "dark": "resources/menu.svg"
+        },
+        "category": "wi"
+      },
+      {
+        "command": "wi.pick",
+        "title": "pick string",
+        "category": "wi"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "wi.convert",
+        "key": "ctrl+alt+c",
+        "mac": "cmd+alt+c",
+        "when": "editorHasSelection"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "A Convert",
+      "properties": {
+        "notesync.opened": {
+          "type": "boolean",
+          "default": false,
+          "description": "测试 boolean"
+        },
+        "notesync.path": {
+          "type": "string",
+          "default": "",
+          "description": "测试 string"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.72.0",
+    "@types/glob": "^8.0.0",
+    "@types/mocha": "^10.0.0",
+    "@types/node": "16.x",
+    "eslint": "^8.24.0",
+    "glob": "^8.0.3",
+    "mocha": "^10.0.0",
+    "typescript": "^4.8.4",
+    "@vscode/test-electron": "^2.1.5"
+  },
+  "license": "SEE LICENSE IN LICENSE.md",
+  "bugs": {
+    "url": "https://github.com/constneo/sss/issues",
+    "email": "constneo@microsoft.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/constneo/sss.git"
+  },
+  "homepage": "https://github.com/sss/blob/master/README.md"
 }
