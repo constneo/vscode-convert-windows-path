@@ -1,17 +1,17 @@
 {
   "name": "vscode-convert-windows-path",
   "displayName": "Convert Path",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "constneo",
   "description": "Convert Windows file path to the Unix Style",
   "author": {
     "name": "constneo",
-    "email": "constneo@microsoft.com"
+    "email": "constneo@outlook.com"
   },
   "categories": [
     "Formatters"
   ],
-  "icon": "./resources/icon.png",
+  "icon": "resources/icon.png",
   "engines": {
     "vscode": "^1.72.0"
   },
@@ -20,21 +20,43 @@
     "onLanguage:json",
     "onLanguage:markdown",
     "onLanguage:typescript",
-    "onLanguage:javascript"
+    "onLanguage:javascript",
+    "onLanguage:rust"
   ],
   "contributes": {
     "menus": {
       "commandPalette": [
         {
+          "when": "editorHasSelection",
+          "command": "wi.convert",
+          "group": "wi@1"
+        },
+        {
           "command": "wi.pick",
-          "when": "editorHasSelection"
+          "when": "editorHasSelection",
+          "group": "wi@2"
+        },
+        {
+          "command": "wi.options",
+          "when": "!editorHasSelection",
+          "group": "wi@3"
         }
       ],
       "editor/context": [
         {
           "when": "editorHasSelection",
           "command": "wi.convert",
-          "group": "navigation"
+          "group": "a"
+        },
+        {
+          "command": "wi.pick",
+          "when": "editorHasSelection",
+          "group": "a"
+        },
+        {
+          "command": "wi.options",
+          "when": "!editorHasSelection",
+          "group": "a"
         }
       ]
     },
@@ -52,6 +74,11 @@
         "command": "wi.pick",
         "title": "pick string",
         "category": "wi"
+      },
+      {
+        "command": "wi.options",
+        "title": "get options",
+        "category": "wi"
       }
     ],
     "keybindings": [
@@ -64,26 +91,22 @@
     ],
     "configuration": {
       "type": "object",
-      "title": "A Convert",
+      "title": "Convert Path",
       "properties": {
-        "notesync.opened": {
+        "wi.opened": {
           "type": "boolean",
           "default": false,
-          "description": "测试 boolean"
+          "description": "仅做测试."
         },
-        "notesync.path": {
+        "wi.path": {
           "type": "string",
-          "default": "",
-          "description": "测试 string"
+          "default": "测试1|测试2",
+          "description": "字符串存储."
         }
       }
     }
   },
-  "scripts": {
-    "lint": "eslint .",
-    "pretest": "npm run lint",
-    "test": "node ./test/runTest.js"
-  },
+  "scripts": {},
   "devDependencies": {
     "@types/vscode": "^1.72.0",
     "@types/glob": "^8.0.0",
@@ -97,12 +120,12 @@
   },
   "license": "SEE LICENSE IN LICENSE.md",
   "bugs": {
-    "url": "https://github.com/constneo/sss/issues",
+    "url": "https://github.com///issues",
     "email": "constneo@microsoft.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/constneo/sss.git"
+    "url": "https://github.com//sss.git"
   },
-  "homepage": "https://github.com/sss/blob/master/README.md"
+  "homepage": "https://github.com//blob/master/README.md"
 }

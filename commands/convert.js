@@ -17,6 +17,5 @@ module.exports = commands.registerCommand('wi.convert', arg => {
 
   edit(e => {
     e.replace(selection, finally_path)
-    console.log(123)
   })
 })
