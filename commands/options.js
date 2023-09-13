@@ -1,4 +1,4 @@
-const { window, commands, workspace } = require('vscode')
+const { window, commands, workspace, CodeLensProvider, CodeLens } = require('vscode')
 
 // 更新配置
 // workspace.getConfiguration('wi').update(键名,键值,是否是全局)

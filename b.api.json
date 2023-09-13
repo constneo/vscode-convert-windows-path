@@ -1,0 +1,22 @@
+{
+  "@root": {
+    "url": "http://127.0.0.1:5000",
+    "version": "HTTP/1.1",
+    "method": "GET",
+    "headers": {
+      "content-type": "application/json"
+    },
+    "body": {}
+  },
+  "@users": {
+    "url": "http://127.0.0.1:5000/users",
+    "httpVersion": "HTTP/1.1",
+    "method": "GET",
+    "headers": {
+      "content-type": "application/json"
+    },
+    "body": {
+      "id": "e16d0fd7-c9a4-4599-9c41-f363a550f70e"
+    }
+  }
+}

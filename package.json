@@ -79,6 +79,16 @@
         "command": "wi.options",
         "title": "get options",
         "category": "wi"
+      },
+      {
+        "command": "wi.message",
+        "title": "message",
+        "category": "wi"
+      },
+      {
+        "command": "wi.request",
+        "title": "request",
+        "category": "wi"
       }
     ],
     "keybindings": [
@@ -120,12 +130,12 @@
   },
   "license": "SEE LICENSE IN LICENSE.md",
   "bugs": {
-    "url": "https://github.com///issues",
+    "url": "https://github.com/",
     "email": "constneo@microsoft.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com//sss.git"
+    "url": "https://github.com/"
   },
-  "homepage": "https://github.com//blob/master/README.md"
+  "homepage": "https://github.com/"
 }
