@@ -1,10 +1,14 @@
 const vscode = require('vscode')
-
-// 按下 F1或 Ctrl + Shift + P -> 输入 wi:pick
+const Logger = require('../utils/logger')
+/**
+ * @param {vscode.ExtensionContext} context
+ * @param {string} command
+ * @returns {vscode.Disposable}
+ */
 module.exports = (context, command) => {
   const disposable = vscode.commands.registerCommand(command, args => {
     vscode.window.showInformationMessage('hello')
+    Logger.info(123)
   })
-
   return disposable
 }

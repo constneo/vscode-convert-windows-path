@@ -75,8 +75,13 @@
         "category": "wi"
       },
       {
-        "command": "wi.getCursorPosition",
+        "command": "wi.cursor.position",
         "title": "getCursorPosition",
+        "category": "wi"
+      },
+      {
+        "command": "wi.output",
+        "title": "output",
         "category": "wi"
       }
     ],
@@ -101,6 +106,11 @@
           "type": "string",
           "default": "测试1|测试2",
           "description": "字符串存储."
+        },
+        "wi.json": {
+          "type": "object",
+          "default": {},
+          "description": "json"
         }
       }
     }
