@@ -15,7 +15,7 @@
   "engines": {
     "vscode": "^1.72.0"
   },
-  "main": "./extension.js",
+  "main": "extension.js",
   "activationEvents": [
     "onLanguage:json",
     "onLanguage:markdown",
@@ -25,23 +25,7 @@
   ],
   "contributes": {
     "menus": {
-      "commandPalette": [
-        {
-          "when": "editorHasSelection",
-          "command": "wi.convert",
-          "group": "wi@1"
-        },
-        {
-          "command": "wi.pick",
-          "when": "editorHasSelection",
-          "group": "wi@2"
-        },
-        {
-          "command": "wi.options",
-          "when": "!editorHasSelection",
-          "group": "wi@3"
-        }
-      ],
+      "commandPalette": [],
       "editor/context": [
         {
           "when": "editorHasSelection",
@@ -89,6 +73,11 @@
         "command": "wi.request",
         "title": "request",
         "category": "wi"
+      },
+      {
+        "command": "wi.getCursorPosition",
+        "title": "getCursorPosition",
+        "category": "wi"
       }
     ],
     "keybindings": [
@@ -117,17 +106,7 @@
     }
   },
   "scripts": {},
-  "devDependencies": {
-    "@types/vscode": "^1.72.0",
-    "@types/glob": "^8.0.0",
-    "@types/mocha": "^10.0.0",
-    "@types/node": "16.x",
-    "eslint": "^8.24.0",
-    "glob": "^8.0.3",
-    "mocha": "^10.0.0",
-    "typescript": "^4.8.4",
-    "@vscode/test-electron": "^2.1.5"
-  },
+  "devDependencies": {},
   "license": "SEE LICENSE IN LICENSE.md",
   "bugs": {
     "url": "https://github.com/",
