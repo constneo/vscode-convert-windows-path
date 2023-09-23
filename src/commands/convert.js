@@ -16,6 +16,7 @@ export default (context, command) => {
 		const finally_path = origin_path
 			.replace(/\\/g, "/")
 			.replace(/(^\")|(\"$)/g, "");
+
 		console.log("path:", finally_path);
 
 		edit((e) => {
