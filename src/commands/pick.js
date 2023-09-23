@@ -1,4 +1,5 @@
-import { commands, window, workspace } from "vscode";
+import * as vscode from "vscode";
+const { commands, window, workspace } = vscode;
 
 // 按下 F1或 Ctrl + Shift + P -> 输入 wi:pick
 export default (context, command) => {

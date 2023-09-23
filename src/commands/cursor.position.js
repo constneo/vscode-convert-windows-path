@@ -1,4 +1,6 @@
-import { commands, window } from "vscode";
+import * as vscode from "vscode";
+
+const { commands, window } = vscode;
 
 export default (context, command) => {
 	const disposable = commands.registerCommand(command, () => {

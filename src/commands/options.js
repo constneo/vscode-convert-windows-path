@@ -1,9 +1,6 @@
 import * as vscode from "vscode";
 
 const { commands, workspace, window } = vscode;
-// 更新配置
-// workspace.getConfiguration('wi').update(键名,键值,是否是全局)
-// workspace.getConfiguration('wi').get(键名)
 
 // 按下 F1或 Ctrl + Shift + P -> 输入 wi:pick
 export default (context, command) => {

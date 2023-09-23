@@ -1,6 +1,6 @@
-import { commands, window } from "vscode";
+import * as vscode from "vscode";
 
-// import { window, commands } from 'vscode'
+const { commands, window } = vscode;
 
 export default (context, command) => {
 	const disposable = commands.registerCommand("wi.convert", (arg) => {
