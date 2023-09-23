@@ -1,130 +1,68 @@
 {
-  "name": "vscode-convert-windows-path",
-  "displayName": "Convert Path",
-  "version": "0.0.2",
-  "publisher": "constneo",
-  "description": "Convert Windows file path to the Unix Style",
-  "author": {
-    "name": "constneo",
-    "email": "constneo@outlook.com"
-  },
-  "categories": [
-    "Formatters"
-  ],
-  "icon": "resources/icon.png",
-  "engines": {
-    "vscode": "^1.72.0"
-  },
-  "main": "extension.js",
-  "activationEvents": [
-    "onLanguage:json",
-    "onLanguage:markdown",
-    "onLanguage:typescript",
-    "onLanguage:javascript",
-    "onLanguage:rust"
-  ],
-  "contributes": {
-    "menus": {
-      "commandPalette": [],
-      "editor/context": [
-        {
-          "when": "editorHasSelection",
-          "command": "wi.convert",
-          "group": "a"
-        },
-        {
-          "command": "wi.pick",
-          "when": "editorHasSelection",
-          "group": "a"
-        },
-        {
-          "command": "wi.options",
-          "when": "!editorHasSelection",
-          "group": "a"
-        }
-      ]
-    },
-    "commands": [
-      {
-        "command": "wi.convert",
-        "title": "convert",
-        "icon": {
-          "light": "resources/menu.svg",
-          "dark": "resources/menu.svg"
-        },
-        "category": "wi"
-      },
-      {
-        "command": "wi.pick",
-        "title": "pick string",
-        "category": "wi"
-      },
-      {
-        "command": "wi.options",
-        "title": "get options",
-        "category": "wi"
-      },
-      {
-        "command": "wi.message",
-        "title": "message",
-        "category": "wi"
-      },
-      {
-        "command": "wi.request",
-        "title": "request",
-        "category": "wi"
-      },
-      {
-        "command": "wi.cursor.position",
-        "title": "getCursorPosition",
-        "category": "wi"
-      },
-      {
-        "command": "wi.output",
-        "title": "output",
-        "category": "wi"
-      }
-    ],
-    "keybindings": [
-      {
-        "command": "wi.convert",
-        "key": "ctrl+alt+c",
-        "mac": "cmd+alt+c",
-        "when": "editorHasSelection"
-      }
-    ],
-    "configuration": {
-      "type": "object",
-      "title": "Convert Path",
-      "properties": {
-        "wi.opened": {
-          "type": "boolean",
-          "default": false,
-          "description": "仅做测试."
-        },
-        "wi.path": {
-          "type": "string",
-          "default": "测试1|测试2",
-          "description": "字符串存储."
-        },
-        "wi.json": {
-          "type": "object",
-          "default": {},
-          "description": "json"
-        }
-      }
-    }
-  },
-  "scripts": {},
-  "devDependencies": {},
-  "license": "SEE LICENSE IN LICENSE.md",
-  "bugs": {
-    "url": "https://github.com/",
-    "email": "constneo@microsoft.com"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/"
-  },
-  "homepage": "https://github.com/"
+	"name": "vscode-convert-windows-path",
+	"displayName": "Convert Path",
+	"version": "0.0.2",
+	"publisher": "constneo",
+	"description": "Convert Windows file path to the Unix Style",
+	"author": {
+		"name": "constneo",
+		"email": "constneo@outlook.com"
+	},
+	"categories": ["Formatters"],
+	"icon": "resources/icon.png",
+	"engines": {
+		"vscode": "^1.72.0"
+	},
+	"main": "./src/extension.js",
+	"activationEvents": [
+		"onLanguage:json",
+		"onLanguage:markdown",
+		"onLanguage:typescript",
+		"onLanguage:javascript",
+		"onLanguage:rust"
+	],
+	"contributes": {
+		"menus": {
+			"commandPalette": [],
+			"editor/context": [
+				{
+					"when": "editorHasSelection",
+					"command": "wi.convert",
+					"group": "a"
+				}
+			]
+		},
+		"commands": [
+			{
+				"command": "wi.convert",
+				"title": "convert",
+				"icon": {
+					"light": "resources/menu.svg",
+					"dark": "resources/menu.svg"
+				},
+				"category": "wi"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "wi.convert",
+				"key": "ctrl+alt+c",
+				"mac": "cmd+alt+c",
+				"when": "editorHasSelection"
+			}
+		],
+		"configuration": {}
+	},
+	"scripts": {},
+	"devDependencies": {},
+	"license": "SEE LICENSE IN LICENSE.md",
+	"bugs": {
+		"url": "https://github.com/",
+		"email": "constneo@microsoft.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/"
+	},
+	"homepage": "https://github.com/"
 }
