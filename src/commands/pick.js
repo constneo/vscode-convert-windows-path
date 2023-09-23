@@ -1,22 +1,22 @@
-const vscode = require('vscode')
+import { commands, window, workspace } from "vscode";
 
 // 按下 F1或 Ctrl + Shift + P -> 输入 wi:pick
-module.exports = (context, command) => {
-  const disposable = vscode.commands.registerCommand(command, () => {
-    const { selection, document } = vscode.window.activeTextEditor
-    const text = document.getText(selection)
-    const options = vscode.workspace.getConfiguration('wi')
+export default (context, command) => {
+	const disposable = commands.registerCommand(command, () => {
+		const { selection, document } = window.activeTextEditor;
+		const text = document.getText(selection);
+		const options = workspace.getConfiguration("wi");
 
-    vscode.window.showInformationMessage(text)
+		window.showInformationMessage(text);
 
-    const list = options.get('path').split('|')
+		const list = options.get("path").split("|");
 
-    if (list.length > 5) {
-      list.shift()
-    }
+		if (list.length > 5) {
+			list.shift();
+		}
 
-    list.push(text)
-    options.update('path', list.join('|'), true)
-  })
-  return disposable
-}
+		list.push(text);
+		options.update("path", list.join("|"), true);
+	});
+	return disposable;
+};

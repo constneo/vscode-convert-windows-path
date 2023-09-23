@@ -1,11 +1,6 @@
-const convert = require("./commands/convert");
+import convert from "./commands/convert";
 
-function activate(context) {
+export function activate(context) {
 	context.subscriptions.push(convert(context, "wi.convert"));
 }
-function deactivate() {}
-
-module.exports = {
-	activate,
-	deactivate,
-};
+export function deactivate() {}

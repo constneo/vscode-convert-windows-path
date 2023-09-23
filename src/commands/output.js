@@ -1,21 +1,22 @@
-const vscode = require('vscode')
+import * as vscode from "vscode";
 
+const { window, commands } = vscode;
 /**
  *
  * @param {vscode.ExtensionContext} context
  * @param {string} command
  * @returns {vscode.Disposable}
  */
-module.exports = (context, command) => {
-  const output = vscode.window.createOutputChannel('Convert Path', {
-    log: true
-  })
+export default (context, command) => {
+	const output = window.createOutputChannel("Convert Path", {
+		log: true,
+	});
 
-  const disposable = vscode.commands.registerCommand(command, options => {
-    console.log(options)
-    output.appendLine(`${options}`)
-    output.show()
-  })
+	const disposable = commands.registerCommand(command, (options) => {
+		console.log(options);
+		output.appendLine(`${options}`);
+		output.show();
+	});
 
-  return disposable
-}
+	return disposable;
+};
