@@ -4,3 +4,5 @@ node_modules
 *.test.*
 *.api.json
 dist
+.env
+test/*

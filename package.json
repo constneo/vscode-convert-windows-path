@@ -1,25 +1,23 @@
 {
 	"name": "vscode-convert-windows-path",
 	"displayName": "Convert Path",
-	"version": "0.0.3",
+	"version": "1.0.0",
 	"publisher": "constneo",
 	"description": "Convert Windows file path to the Unix Style",
 	"author": {
 		"name": "constneo",
 		"email": "constneo@outlook.com"
 	},
-	"categories": ["Formatters"],
+	"categories": [
+		"Formatters"
+	],
 	"icon": "resources/icon.png",
 	"engines": {
-		"vscode": "^1.72.0"
+		"vscode": "^1.82.0"
 	},
 	"main": "./dist/extension.js",
 	"activationEvents": [
-		"onLanguage:json",
-		"onLanguage:markdown",
-		"onLanguage:typescript",
-		"onLanguage:javascript",
-		"onLanguage:rust"
+		"onLanguage"
 	],
 	"contributes": {
 		"menus": {
@@ -27,25 +25,35 @@
 			"editor/context": [
 				{
 					"when": "editorHasSelection",
-					"command": "wi.convert",
-					"group": "a"
+					"command": "vscode-convert-windows-path.convert",
+					"group": "vscode-convert-windows-path@1"
+				},
+				{
+					"when": "resourceExtname == .json || resourceExtname == .code-snippets",
+					"command": "vscode-convert-windows-path.generate-snippet",
+					"group": "vscode-convert-windows-path@2"
 				}
 			]
 		},
 		"commands": [
 			{
-				"command": "wi.convert",
-				"title": "convert",
+				"command": "vscode-convert-windows-path.convert",
+				"title": "Convert path to Unix style",
 				"icon": {
 					"light": "resources/menu.svg",
 					"dark": "resources/menu.svg"
 				},
-				"category": "wi"
+				"category": "vscode-convert-windows-path"
+			},
+			{
+				"command": "vscode-convert-windows-path.generate-snippet",
+				"title": "从剪切板生成一个snippets",
+				"category": "vscode-convert-windows-path"
 			}
 		],
 		"keybindings": [
 			{
-				"command": "wi.convert",
+				"command": "vscode-convert-windows-path.convert",
 				"key": "ctrl+alt+c",
 				"mac": "cmd+alt+c",
 				"when": "editorHasSelection"
@@ -54,11 +62,18 @@
 		"configuration": {}
 	},
 	"scripts": {
-		"dev": "tsc --build --watch",
-		"build": "tsc --build"
+		"esbuild:build": "node scripts/esbuild.build.mjs",
+		"pack": "vsce package --no-dependencies",
+		"test": "node test/test.js ",
+		"dev": "tsc -watch -p ./",
+		"build": "tsc --build && tsc-alias --project tsconfig.json ",
+		"watch": "tsc --build && tsc-alias --project tsconfig.json --watch"
 	},
 	"devDependencies": {
-		"@types/vscode": "^1.82.0"
+		"@types/node": "^20.8.8",
+		"@types/vscode": "^1.82.0",
+		"tsc-alias": "^1.8.8",
+		"typescript": "^5.2.2"
 	},
 	"license": "SEE LICENSE IN LICENSE.md",
 	"bugs": {

@@ -1,3 +1,4 @@
 {
-  "restful.enable": true
+  "restful.enable": true,
+  "svg.preview.background": "editor"
 }
