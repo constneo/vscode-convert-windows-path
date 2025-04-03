@@ -1,36 +1,45 @@
 {
   "name": "vscode-convert-windows-path",
   "displayName": "Convert Path",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "constneo",
-  "description": "Convert Windows file path to the Unix Style",
-  "author": {
-    "name": "constneo",
-    "email": "constneo@outlook.com"
-  },
+  "type": "module",
+  "description": "Convert Windows file path to the Unix Style.",
+  "author": "constneo",
   "categories": [
-    "Formatters"
+    "Other"
   ],
   "icon": "assets/icon.png",
   "engines": {
     "vscode": "^1.82.0"
   },
-  "main": "./dist/extension.js",
+  "main": "extension.cjs",
   "activationEvents": [
     "onStartupFinished"
   ],
   "contributes": {
     "menus": {
-      "commandPalette": [],
-      "editor/context": [
+      "commandPalette": [
         {
-          "when": "editorHasSelection",
+          "when": "constneo.showConvertPath && editorHasSelection",
           "command": "vscode-convert-windows-path.convert",
           "group": "vscode-convert-windows-path@1"
         },
         {
-          "when": "resourceExtname == .json || resourceExtname == .code-snippets",
-          "command": "vscode-convert-windows-path.generate-snippet",
+          "when": "constneo.showGenerateSnippet && !editorHasSelection",
+          "command": "vscode-convert-windows-path.generateSnippet",
+          "group": "vscode-convert-windows-path@2"
+        }
+      ],
+      "editor/context": [
+        {
+          "when": "constneo.showConvertPath &&  editorHasSelection",
+          "command": "vscode-convert-windows-path.convert",
+          "group": "vscode-convert-windows-path@1"
+        },
+        {
+          "when": "constneo.showGenerateSnippet && !editorHasSelection",
+          "command": "vscode-convert-windows-path.generateSnippet",
           "group": "vscode-convert-windows-path@2"
         }
       ]
@@ -46,8 +55,8 @@
         "category": "vscode-convert-windows-path"
       },
       {
-        "command": "vscode-convert-windows-path.generate-snippet",
-        "title": "从剪切板生成一个snippets",
+        "command": "vscode-convert-windows-path.generateSnippet",
+        "title": "Generate snippets from clipboard",
         "category": "vscode-convert-windows-path"
       }
     ],
@@ -56,10 +65,38 @@
         "command": "vscode-convert-windows-path.convert",
         "key": "ctrl+alt+c",
         "mac": "cmd+alt+c",
-        "when": "editorHasSelection"
+        "when": "constneo.showConvertPath && editorHasSelection"
+      },
+      {
+        "command": "vscode-convert-windows-path.generateSnippet",
+        "key": "ctrl+alt+c",
+        "mac": "cmd+alt+c",
+        "when": "constneo.showGenerateSnippet && !editorHasSelection"
       }
     ],
-    "configuration": {}
+    "configuration": {
+      "id": "vscode-convert-windows-path",
+      "type": "object",
+      "order": 20,
+      "title": "Convert Path",
+      "properties": {
+        "vscode-convert-windows-path.showWelcome": {
+          "type": "boolean",
+          "default": false,
+          "description": "Turn on the display of welcome message."
+        },
+        "vscode-convert-windows-path.showGenerateSnippet": {
+          "type": "boolean",
+          "default": false,
+          "description": "A context menu for whether to display 'Generate snippets from clipboard'"
+        },
+        "vscode-convert-windows-path.showConvertPath": {
+          "type": "boolean",
+          "default": true,
+          "description": "A context menu for whether to display 'Convert path to Unix style'"
+        }
+      }
+    }
   },
   "scripts": {
     "esbuild:build": "node scripts/esbuild.build.mjs",
@@ -73,18 +110,16 @@
   "devDependencies": {
     "@types/node": "^22.14.0",
     "@types/vscode": "^1.82.0",
-    "tsc": "^2.0.4",
-    "tsc-alias": "^1.8.8",
     "typescript": "^5.8.2"
   },
   "license": "LICENSE",
   "bugs": {
-    "url": "https://github.com/",
+    "url": "https://github.com/constneo/vscode-convert-windows-path",
     "email": "constneo@outlook.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/"
+    "url": "https://github.com/constneo/vscode-convert-windows-path"
   },
-  "homepage": "https://github.com/"
+  "homepage": "https://github.com/constneo/vscode-convert-windows-path"
 }

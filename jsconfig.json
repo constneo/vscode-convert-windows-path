@@ -1,14 +1,15 @@
 {
   "compilerOptions": {
-    "module": "CommonJS",
+    "module": "NodeNext",
     "target": "ESNext",
     "checkJs": true,
     "lib": ["ESNext", "DOM"],
     "rootDir": "./src",
     "baseUrl": ".",
     "allowJs": true,
-    "outDir": "dist"
+    "outDir": "dist",
+    "moduleResolution": "nodenext"
   },
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules", "dist/**/*"],
   "include": ["src/**/*"]
 }
