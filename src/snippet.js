@@ -1,18 +1,7 @@
 import { COMMANDS } from "./constans.js"
+import { Disposable } from "./utils.js"
 import vscode from "./vscode.js"
 import { randomUUID as uuid } from "node:crypto"
-
-export class Disposable extends vscode.Disposable {
-  constructor() {
-    super(() => {})
-
-    this.subscriptions = []
-  }
-
-  dispose() {
-    this.subscriptions.forEach(s => s.dispose())
-  }
-}
 
 export default class GenerateSnippetPathProvider extends Disposable {
   constructor() {
@@ -20,12 +9,12 @@ export default class GenerateSnippetPathProvider extends Disposable {
 
     const disposable = vscode.commands.registerCommand(COMMANDS.generateSnippet, async args => {
       const editor = vscode.window.activeTextEditor
-      const flag =
-        editor?.document.uri.path.endsWith(".json") ||
-        editor?.document.uri.path.endsWith(".code-snippets")
-      if (!editor || !flag) {
-        return
-      }
+      // const flag =
+      //   editor?.document.uri.path.endsWith(".json") ||
+      //   editor?.document.uri.path.endsWith(".code-snippets")
+      // if (!editor || !flag) {
+      //   return
+      // }
 
       const clip = vscode.env.clipboard
       const text = await clip.readText()

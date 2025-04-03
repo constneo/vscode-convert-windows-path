@@ -1,11 +1,12 @@
 {
   "name": "vscode-convert-windows-path",
   "displayName": "Convert Path",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "publisher": "constneo",
   "type": "module",
   "description": "Convert Windows file path to the Unix Style.",
   "author": "constneo",
+  "license": "LICENSE",
   "categories": [
     "Other"
   ],
@@ -111,11 +112,6 @@
     "@types/node": "^22.14.0",
     "@types/vscode": "^1.82.0",
     "typescript": "^5.8.2"
-  },
-  "license": "LICENSE",
-  "bugs": {
-    "url": "https://github.com/constneo/vscode-convert-windows-path",
-    "email": "constneo@outlook.com"
   },
   "repository": {
     "type": "git",

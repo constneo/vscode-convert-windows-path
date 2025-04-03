@@ -24,3 +24,5 @@ biome.json
 READEME.en.md
 commands/*
 codelens.js
+dist/
+drop/

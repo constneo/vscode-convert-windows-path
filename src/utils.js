@@ -1,8 +1,19 @@
 import { exec } from "child_process"
 import vscode from "./vscode.js"
 import { PLUGIN_ID, PLUGIN_NAME, message } from "./constans.js"
-import path from "path"
+
 // import add from "@constneo/add"
+
+export class Disposable extends vscode.Disposable {
+  constructor() {
+    super(() => {})
+    this.subscriptions = []
+  }
+
+  dispose() {
+    this.subscriptions.forEach(s => s.dispose())
+  }
+}
 
 /**
  * @param {string} fileName
@@ -79,10 +90,12 @@ export function getCurrentDate() {
  */
 export function when() {
   // 监听配置文件的修改,使条件立即生效
-  const disposable = vscode.workspace.onDidChangeConfiguration(async e => {
+  const disposable = vscode.window.onDidChangeActiveTextEditor(async editor => {
+    if (!editor) return
+
     const { showGenerateSnippet, showConvertPath } = await getConfig()
 
-    const editor = vscode.window.activeTextEditor
+    // const editor = vscode.window.activeTextEditor
     // const uri = editor.document.fileName
 
     // path.extname(uri)
@@ -95,7 +108,8 @@ export function when() {
     // txt -> plaintext
 
     const ids = ["json", "snippets", "jsonc", "plaintext"]
-    const has = ids.some(i => i === editor.document.languageId)
+
+    const has = ids.some(i => !!editor.document && i === editor.document.languageId)
 
     vscode.commands.executeCommand(
       "setContext",

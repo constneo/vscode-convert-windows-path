@@ -19,8 +19,20 @@
 ```json
 // .vscode/settings.json
 {
-  "vscode-convert-windows-path.convertPath": true,
-  "vscode-convert-windows-path.isNotify": false,
-  "vscode-convert-windows-path.generateSnippet": false
+  "vscode-convert-windows-path.showGenerateSnippet": false,
+  "vscode-convert-windows-path.showWelcome": false,
+  "vscode-convert-windows-path.showConvertPath": false
 }
+```
+
+## Build
+
+```shell
+npm install
+
+npm install -g @vscode/vsce
+
+vsce package --no-dependencies
+
+vsce package --dependencies
 ```
