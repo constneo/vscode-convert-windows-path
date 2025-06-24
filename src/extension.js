@@ -15,6 +15,8 @@ export async function activate(context) {
   if (showGenerateSnippet) context.subscriptions.push(new GenerateSnippetPathProvider())
 
   if (showConvertPath) context.subscriptions.push(convert())
+
+  vscode.workspace.onDidChangeConfiguration(() => {})
 }
 
 export function deactivate() {}

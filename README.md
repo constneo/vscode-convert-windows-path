@@ -25,6 +25,16 @@
 }
 ```
 
+Reload your project in vscode for the configuration to take effect.
+
+```js
+if (showWelcome) welcome()
+
+if (showGenerateSnippet) context.subscriptions.push(new GenerateSnippetPathProvider())
+
+if (showConvertPath) context.subscriptions.push(convert())
+```
+
 ## Build
 
 ```shell
